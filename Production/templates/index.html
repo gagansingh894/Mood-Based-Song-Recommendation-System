@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href= {{ url_for('static', filename="/index.css") }}  rel="stylesheet"> 
+  <title>Mood Based Song Recommendations</title>
+  <h1 style="text-align:center">Mood Based Song Recommendations</h1>
+</head>
+<body>
+
+<div class="container">
+    <form class="login-form" action="/predict" method='POST'>
+    <div class="centered">
+      <h4>Pen down your thoughts.... but within 30 words</h4>
+      <div class="group"><textarea name="thought" id="thought"  ></textarea>
+          <div class="bar"></div>
+      </div>
+    </div>
+    <button type="submit" class="btn submit" onclick="validateForm()">Hit Me</button>
+    </form>
+</div>
+</body>
+</html>

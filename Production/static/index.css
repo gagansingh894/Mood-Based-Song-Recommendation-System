@@ -1,0 +1,106 @@
+html{
+  height: 100%;
+  font-family: "Helvetica";
+   background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+  background-size: cover;
+}
+
+h1{
+  color: white;
+  font-size: 3em;
+}
+
+.btn.first {
+  margin-top: 100px;
+  position:relative;
+  left: 45%;
+  width: 200px;
+  height: 50px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  font-size: 1.5em;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+h3{
+  color: white;
+  margin-top: 100px;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+
+h4{
+  color: white;
+  text-align: center;
+}
+
+.container {
+ height: 500px;
+ width: 50%;
+ background-color: transparent;
+ text-align: center;
+ margin: auto;
+ margin-top: 100px;
+}
+
+
+textarea {
+
+    border-radius: 25px;
+    margin-top: 20px;
+    width: 50%;
+    height: 300px;
+    text-align: center;
+    background: transparent;
+    border-color: white;
+    color:white;
+    font-size: 1.5em;  
+}
+
+::placeholder {
+  color: white;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+textarea:focus, input:focus {
+    color: white;
+    border-radius: 25px;
+    border: 3px solid white;
+    outline-width: 0;
+    font-size: 1.5em;
+}
+button {
+  margin-top: 5%;
+  width: 120px;
+  height: 50px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  font-size: 1.5em;
+  border-radius: 25px;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;  
+
+}
+
+
+.results{
+    position: absolute;
+    margin: 10% 0% 2% 2%;
+    width: 300px;
+    height: 180px;
+    border: 3px solid white;
+    border-radius: 25px;
+    color: grey; 
+    background-color: white;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+}
