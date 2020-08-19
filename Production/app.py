@@ -1,6 +1,6 @@
 import re
 import numpy as np
-from flask import Flask, request, jsonify, render_template, url_for, redirect
+from flask import Flask, request, render_template, url_for, redirect
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 import json
@@ -28,19 +28,35 @@ MODEL = load_model(DIRNAME + r'/data/Glove_embedding_CNN_LSTM_model.h5')
 app = Flask(__name__, root_path=DIRNAME)
 global display_msg, songs
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET','POST'])
 def home():
-    return render_template('index.html')
+        return render_template('index.html')
 
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
+    error = None
     if request.method == 'POST':
         data = request.form['thought']
-        data = prepare_input(data)
-        pred = np.argmax(MODEL.predict(data), axis=-1)[0]
-        display_msg = beautify_output_msg(pred)
-        songs = recommed_song(pred)
-        return render_template('predict.html', value=display_msg, songs=songs)
+
+        # FROM VALIDATIONS
+        if data.strip() == '':
+            error = 'Textbox is empty!'
+        elif len(re.split(',| ', data)) < 3:
+            error = 'Please enter atleast 3 words!'
+        elif min(set([len(word) for word in re.split(',| ', data)])) == 1:
+            error = "Please don't enter single characters"
+        else:
+            pass 
+
+        if error != None:
+            redirect('/', code=302)
+            return render_template('index.html', error=error)
+        else:
+            data = prepare_input(data)
+            pred = np.argmax(MODEL.predict(data), axis=-1)[0]
+            display_msg = beautify_output_msg(pred)
+            songs = recommed_song(pred)
+            return render_template('predict.html', value=display_msg, songs=songs)
     else:
         return redirect('/', code=302)
 

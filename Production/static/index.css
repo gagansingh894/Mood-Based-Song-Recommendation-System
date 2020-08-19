@@ -10,6 +10,10 @@ h1{
   font-size: 3em;
 }
 
+.errmsg {
+  color: darkred
+}
+
 .btn.first {
   margin-top: 100px;
   position:relative;
@@ -90,6 +94,9 @@ button {
 
 }
 
+button:focus {
+  outline-width: 0;
+}
 
 .results{
     position: absolute;

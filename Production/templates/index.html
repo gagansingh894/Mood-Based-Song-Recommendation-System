@@ -8,8 +8,11 @@
   <title>Mood Based Song Recommendations</title>
   <h1 style="text-align:center">Mood Based Song Recommendations</h1>
 </head>
+<header>
 <body>
-
+  {% if error %}
+         <p class="errmsg"><strong>Error:</strong> {{ error }} </p>
+    {% endif %}
 <div class="container">
     <form class="login-form" action="/predict" method='POST'>
     <div class="centered">
