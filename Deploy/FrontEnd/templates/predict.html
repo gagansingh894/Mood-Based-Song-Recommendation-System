@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href= {{ url_for('static', filename="/index.css") }}  rel="stylesheet">
+  <title>Mood Based Song Recommendations</title>
+  <h1 style="text-align:center">Mood Based Song Recommendations</h1>
+</head>
+<body>
+
+  <h3>{{ value }}</h3>
+
+  <div class = "results-container">
+    {% for song in songs %}
+      <div class = "results">
+      <p>Song Name: {{song[2]}}</p>
+      <p>Artist: {{song[3]}}</p>
+      <p>Year of Release: {{song[4]}}</p>
+      </div>
+    {% endfor %}
+  </div>
+    
+    <form action="/">
+    <button type="submit" class="btn first">Start Again</button>
+    </form>
+</body>
+</html>
